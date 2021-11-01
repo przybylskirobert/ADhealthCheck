@@ -16,7 +16,12 @@ param (
 )
 
 #region initial setup
+try {
+    Stop-Transcript
+}
+catch {
 
+}
 $auditFolderTest = Test-Path $AuditPath
 if ($auditFolderTest -eq $false) {
     New-Item -Path $AuditPath -Name ADAudit -ItemType Directory -Force | Out-Null
